@@ -1,0 +1,47 @@
+#include<bits/stdc++.h> 
+#include<cmath>
+#include<string>
+#define ll long long int
+using namespace std;
+
+ll recur(ll n)
+{ll c=0;
+	if (n==1)
+		return 0;
+
+	while (n!=1)
+
+	{ if((n&(n-1))==0)
+		{
+			n=n>>1;
+			c++;
+		}
+
+
+
+
+		else{ ll k= (ll)(log2(n));
+		ll f= (ll)pow(2,k);
+		n=n^f;
+		c++;}
+	}
+	return c;
+}
+
+int main()
+{
+	ll t;
+	cin>>t;
+	while(t--)
+	{
+		ll n;
+		cin>>n;
+		ll m=recur(n);
+		if ((m&1))
+			cout<<"Louise"<<endl;
+		else
+			cout<<"Richard"<<endl;
+
+	}
+	return 0;
+}
